@@ -236,7 +236,9 @@ class Codec8e extends Codec {
     for (var i = 0; i < ioCountIntX; i++) {
       let property_id = this.toInt(this.reader.ReadBytes(2));
       let ioValueLength = this.toInt(this.reader.ReadBytes(2));
-      let value = this.toString(this.reader.ReadBytes(ioValueLength));
+      let valueRaw = this.reader.ReadBytes(ioValueLength);
+      console.log(valueRaw);
+      let value = this.toString(valueRaw);
       ioElement.push({
         id: property_id,
         value: value,
