@@ -237,8 +237,7 @@ class Codec8e extends Codec {
       let property_id = this.toInt(this.reader.ReadBytes(2));
       let ioValueLength = this.toInt(this.reader.ReadBytes(2));
       let valueRaw = this.reader.ReadBytes(ioValueLength);
-      console.log(valueRaw);
-      let value = valueRaw.toString();
+      let value = valueRaw.toString('hex');
       ioElement.push({
         id: property_id,
         value: value,
